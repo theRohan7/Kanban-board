@@ -1,13 +1,25 @@
 import './App.css'
+import { Toaster } from 'react-hot-toast'
+import { AuthProvider } from './context/AuthContext'
+import { TaskProvider } from './context/TaskContext'
+import { Route, Routes } from 'react-router-dom'
+import Home from './Pages/Home'
 
 function App() {
 
 
   return (
     <>
-      <h1 className='text-3xl font-bold underline' >
-        Testing
-      </h1>
+    <Toaster />
+    <AuthProvider>
+      <TaskProvider>
+        <Routes>
+          <Route path='/' element={<Home />} />
+        </Routes>
+
+      </TaskProvider>
+    </AuthProvider>
+      
     </>
   )
 }
